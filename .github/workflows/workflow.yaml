@@ -4,6 +4,8 @@ jobs:
     jobe1:
         runs-on: ubuntu-latest
         steps:
+        - name: checkout
+          uses: actions/checkout@v4
         - name: step1
           run: echo " my first runner"
         - name: step2
