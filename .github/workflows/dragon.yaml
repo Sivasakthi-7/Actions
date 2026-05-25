@@ -6,11 +6,7 @@ jobs:
         steps:
             - name: checkout
               uses: actions/checkout@v4
-            - name: install cowsay
-              run: sudo apt-get install cowsay -y
-            - name: generate drgaon
-              run: cowsay -f dragon "i am dragon raww" > dragon.txt
-            - name: cat 
-              run: |
-               cat dragon.txt
-               ls
+            - name: permission
+              run: chmod +x script.sh
+            - name: run shell script
+              run: ./script.sh
