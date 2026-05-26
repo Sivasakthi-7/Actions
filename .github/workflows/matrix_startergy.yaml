@@ -2,10 +2,12 @@ name: matrix stratergy
 on: 
     push:
     workflow_dispatch:
-        
+
 jobs:
     container-test:
         strategy:
+          fail-fast: false
+          max-parallel: 3
           matrix:
             os: ["ubuntu-latest", "windows-2022"]
             image: ["hello-world", "redis" ]
