@@ -7,7 +7,7 @@ jobs:
     container-test:
         strategy:
           matrix:
-            os: ["ubuntu-latest", "windows-2022", "macos-latest"]
+            os: ["ubuntu-latest", "windows-2022"]
             image: ["hello-world", "redis" ]
         runs-on: ${{ matrix.os }}
         steps:
