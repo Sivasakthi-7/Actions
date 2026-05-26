@@ -2,13 +2,20 @@ name: matrix stratergy
 on: 
     push:
     workflow_dispatch:
-    
+        
 jobs:
     container-test:
         strategy:
           matrix:
             os: ["ubuntu-latest", "windows-2022"]
             image: ["hello-world", "redis" ]
+            include:
+                - image: ["nginx"]
+                  os: ["ubuntu-latest"]
+            exclude:
+                - image: ["redis"]
+                  os: ["windows-2022"]
+
         runs-on: ${{ matrix.os }}
         steps:
             - name: run on ${{matrix.os}}
