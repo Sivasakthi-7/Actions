@@ -1,0 +1,16 @@
+name: matrix stratergy
+on: 
+    push:
+    workflow_dispatch:
+    
+jobs:
+    container-test:
+        strategy:
+          matrix:
+            os: ["ubuntu-latest", "windows-2022", "macos-latest"]
+            image: ["hello-world", "redis" ]
+        runs-on: ${{ matrix.os }}
+        steps:
+            - name: run on ${{matrix.os}}
+              run: docker run ${{matrix.image}}
+
